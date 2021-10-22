@@ -1,4 +1,4 @@
-FROM parrotsecurity/corvid
+FROM parrotsecurity/corvid:1
 
 RUN apt-get update && apt-mark hold iptables && \
     env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -64,5 +64,7 @@ you might want to add option --composite.' >&2\n\
 startxfce4\n\
 " > /usr/local/bin/start && \
 chmod +x /usr/local/bin/start
-
+RUN git clone https://github.com/Ashraf-wan/Corvid
+RUN mkdir /usr/share/xfce4/backdrops
+RUN mv /Corvid/corvidos.png /usr/share/xfce4/backdrops
 CMD start
