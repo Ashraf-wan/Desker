@@ -1,9 +1,0 @@
-FROM parrotsecurity/corvid
-
-RUN apt-get update && \
-    env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      fluxbox \
-      eterm && \
-    rm -rf /var/lib/apt/lists/*
-
-CMD fluxbox
